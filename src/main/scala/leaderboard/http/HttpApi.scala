@@ -13,12 +13,11 @@ trait HttpApi[F[_, _]] {
 object HttpApi {
 
   final class Impl[F[+_, +_]](
-                               dsl: Http4sDsl[F[Throwable, *]],
-                               ladder: Ladder[F],
-                               profiles: Profiles[F],
-                               ranks: Ranks[F],
-                                   )(
-    implicit sync: Sync[F[Throwable, *]],
+    dsl: Http4sDsl[F[Throwable, *]],
+    ladder: Ladder[F],
+    profiles: Profiles[F],
+    ranks: Ranks[F],
+  )(implicit sync: Sync[F[Throwable, *]],
   ) extends HttpApi[F] {
 
     import dsl._
@@ -34,7 +33,7 @@ object HttpApi {
         case GET -> Root / "profile" / UUIDVar(userId) =>
           InternalServerError()
 
-        case rq@POST -> Root / "profile" / UUIDVar(userId) =>
+        case rq @ POST -> Root / "profile" / UUIDVar(userId) =>
           InternalServerError()
       }
     }
