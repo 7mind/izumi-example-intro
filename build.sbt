@@ -5,6 +5,7 @@ val V = new {
   val scalacheck      = "1.14.3"
   val http4s          = "0.21.6"
   val doobie          = "0.9.0"
+  val cats            = "2.2.0-RC1"
   val zio             = "1.0.0-RC21-2"
   val zioCats         = "2.1.3.0-RC16"
   val kindProjector   = "0.11.0"
@@ -32,6 +33,8 @@ val Deps = new {
   val doobie         = "org.tpolecat" %% "doobie-core" % V.doobie
   val doobiePostgres = "org.tpolecat" %% "doobie-postgres" % V.doobie
   val doobieHikari   = "org.tpolecat" %% "doobie-hikari" % V.doobie
+
+  val cats = "org.typelevel" %% "cats-core" % V.cats
 
   val kindProjector = "org.typelevel" % "kind-projector" % V.kindProjector cross CrossVersion.full
 
@@ -69,6 +72,7 @@ lazy val leaderboard = project
         Deps.doobie,
         Deps.doobiePostgres,
         Deps.doobieHikari,
+        Deps.cats,
         Deps.zio,
         Deps.zioCats,
       ),
